@@ -46,6 +46,18 @@ void uCodeGenerationVisitor::setUrl(std::string thisurl)
     url = thisurl;
 }
 
+void uCodeGenerationVisitor::cleanUrl()
+{
+    //TODO
+    ofstream myfile;
+    const string substring = url.substr(7, url.length());
+    uDebugPrinter::printText("Path: " + substring);
+    myfile.open(substring);
+    uDebugPrinter::printText(substring);
+    myfile << "";
+    myfile.close();
+}
+
 void uCodeGenerationVisitor::visit(uChildClass *childClass)
 {
     if (mLanguage->hasSeparateFiles()) {
@@ -243,7 +255,7 @@ bool uCodeGenerationVisitor::saveClassInDiagram(string const& name, string const
     uDebugPrinter::printText(substring);
     if (!myfile.is_open())
         return false;
-//this will work but i need it do work a bit differently than this because i only want one file.
+
     myfile << "\{\"classes\" : [\n";
     myfile << "\t{\"name\":\"" +name + "\"},\n";
     myfile << "\t{\"author\":\"" + author + "\"},\n";

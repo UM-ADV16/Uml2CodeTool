@@ -3,6 +3,12 @@ TEMPLATE = app
 QT += qml quick
 CONFIG += c++11
 QT += testlib
+QT += core-private
+QT += gui-private
+QT += widgets
+
+include(qtquick2controlsapplicationviewer/qtquick2controlsapplicationviewer.pri)
+qtcAddDeployment()
 
 SOURCES += src/main.cpp \
     src/uAggregation.cpp \
@@ -48,7 +54,8 @@ SOURCES += src/main.cpp \
     src/uGridClass.cpp \
     src/uGridObject.cpp \
     src/uGridSegment.cpp \
-    src/uGridArrow.cpp
+    src/uGridArrow.cpp \
+    ui/filesavedialog.cpp
 
 RESOURCES += ui/qml.qrc
 
@@ -106,5 +113,6 @@ HEADERS += \
     src/uGridClass.h \
     src/uGridObject.h \
     src/uGridSegment.h \
-    src/uGridArrow.h
+    src/uGridArrow.h \
+    ui/filesavedialog.h
 

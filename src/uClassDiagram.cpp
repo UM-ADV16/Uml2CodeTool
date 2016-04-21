@@ -121,10 +121,9 @@ void uClassDiagram::applySaveVisitor(uVisitor *visitor, QList<double> x, QList<d
     if (visitor == NULL)
         uDebugPrinter::printText("NUll POINTER");
     int i = 0;
-    for(TClassesIter iter = mClasses.begin(); iter < mClasses.end(); iter++){
+    for(TClassesIter iter = mClasses.begin(); iter < mClasses.end(); iter++, i++){
         uDebugPrinter::printClass(*iter);
         (*iter)->acceptSave(visitor, x[i], y[i]);
-        i++;
     }
 }
 

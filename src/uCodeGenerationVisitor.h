@@ -18,6 +18,7 @@ public:
     uLanguageStrategy * getLanguage() const;
     void setFileAttributes(std::string const& author, std::string const& date);
     void setUrl(std::string url);
+    void cleanUrl();
     virtual void visit(uChildClass * childClass);
     virtual void visit(uBaseClass * baseClass);
     virtual void visit(uInterface * interfaceClass);

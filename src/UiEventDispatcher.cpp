@@ -141,6 +141,7 @@ void UiEventDispatcher::generateCode()
     mClassDiagram->applyVisitor(mCodeGenerator);
     uDebugPrinter::printText("done generating code");
 }
+
 //this is the function called by the eventDispatcher to call the mClassDiagram->applySaveVisitor to save the
 //diagram to a text file in json format.
 void UiEventDispatcher::saveDiagram(QString url, QList<QString> names, QList<double> xLoc, QList<double> yLoc)
@@ -148,6 +149,7 @@ void UiEventDispatcher::saveDiagram(QString url, QList<QString> names, QList<dou
 
     //uDebugPrinter::printText("in the save function " + names[0].toStdString() + std::to_string(xLoc[0]));
     mCodeGenerator->setUrl(url.toStdString());
+    mCodeGenerator->cleanUrl();
     mCodeGenerator->setFileAttributes("","");
 
     mClassDiagram->applySaveVisitor(mCodeGenerator, xLoc, yLoc);
